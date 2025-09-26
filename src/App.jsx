@@ -1,16 +1,12 @@
-import { useContext } from "react";
-import { ThemeContext } from "./context/ThemeContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 export default function App() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-
   return (
-    <div>
-      <button onClick={toggleTheme}>
-        {theme === "light" ? "Set dark theme" : "Set light theme"}
-      </button>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+      </Routes>
+    </Router>
   );
 }
-
-function AppContent() {}
