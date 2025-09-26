@@ -1,3 +1,15 @@
+/* -- FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+-- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128 */
+
+/*************************************
+ RESETS AND GLOBAL STYLES
+ *************************************/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 /* Light theme */
 :root {
   --color-background: #ffffff;
@@ -5,20 +17,67 @@
   --color-primary: #112d4e;
   --color-accent: #3f72af;
   --color-text-primary: #222;
-  --color-text-secondary: #444;
+  --color-text-secondary: #333;
+
+  /* Font */
+  --font-family-base: 'Inter', sans-serif;
+
+  /* Spacing */
+  /* Base 1rem = 10px */
+  --space-3xs: 0.4rem;
+  --space-2xs: 0.8rem;
+  --space-xs: 1.2rem;
+  --space-sm: 1.6rem;
+  --space-md: 2.4rem;
+  --space-lg: 3.2rem;
+  --space-xl: 4.8rem;
+  --space-2xl: 6.4rem;
+  --space-3xl: 8rem;
 }
 
 /* Dark theme */
 [data-theme="dark"] {
-  --color-background: #070F2B;
-  --color-background-alt: #535C91;
-  --color-primary: #070F2B;
-  --color-accent: #1B1A55;
+  --color-background: #070f2b;
+  --color-background-alt: #535c91;
+  --color-primary: #070f2b;
+  --color-accent: #1b1a55;
   --color-text-primary: #eeeeee;
   --color-text-secondary: #dddddd;
 }
 
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
 body {
-    background-color: var(--color-background);
-    color: var(--color-text-secondary);
+  background-color: var(--color-background);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
 }

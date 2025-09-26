@@ -1,16 +1,20 @@
-import { useContext } from "react";
-import { ThemeContext } from "./context/ThemeContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import MovieDetails from "./pages/Details";
+import Favorites from "./pages/Favorites";
+import PageNotFound from "./pages/PageNotFound";
+import NavBar from "./components/NavBar";
 
 export default function App() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-
   return (
-    <div>
-      <button onClick={toggleTheme}>
-        {theme === "light" ? "Set dark theme" : "Set light theme"}
-      </button>
-    </div>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </Router>
   );
 }
-
-function AppContent() {}
