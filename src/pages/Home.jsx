@@ -1,6 +1,6 @@
-import FavoritesSection from "../components/FavoritesSection";
-import ResultsSection from "../components/ResultsSection";
 import SearchSection from "../components/SearchSection";
+import ResultsSection from "../components/ResultsSection";
+import FavoritesSection from "../components/FavoritesSection";
 
 function Home() {
   return (
