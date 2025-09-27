@@ -27,6 +27,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: var(--space-xs);
   background-color: var(--color-background-input);
   padding: var(--space-2xs) var(--space-xs);
   box-shadow: 1px 1px 4px 0.5px rgba(0, 0, 0, 0.2);
