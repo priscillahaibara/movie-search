@@ -1,15 +1,14 @@
+import styles from "./SearchSection.module.css";
+
 function SearchSection() {
   return (
-    <section className="search">
-      <h1 className="search__title">Movie Search App</h1>
-      <h2 className="search__subtitle">
-        Here you can find your favorite movies.
-      </h2>
-      <input
-        type="text"
-        className="search__input"
-        placeholder="Search for a movie..."
-      />
+    <section className={styles.search}>
+      <h1>Movie Search App</h1>
+      <h2>Here you can find your favorite movies.</h2>
+      <div className={styles.inputWrapper}>
+        <input type="text" placeholder="Search for a movie..." />
+        <ion-icon name="search-outline" className={styles.searchIcon}></ion-icon>
+      </div>
     </section>
   );
 }
