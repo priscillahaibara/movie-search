@@ -1,0 +1,22 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: var(--space-xl);
+  padding: 0 var(--space-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+}
+
+.logo {
+  text-transform: uppercase;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav button {
+  font-size: 20px;
+  --ionicon-stroke-width: 40px;
+}

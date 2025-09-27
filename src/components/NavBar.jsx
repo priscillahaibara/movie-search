@@ -1,13 +1,14 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import styles from './NavBar.module.css'
 
 function NavBar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <nav>
-      <Link to="/">🎬 Movie Search</Link>
+    <nav className={styles.nav}>
+      <NavLink to="/" className={styles.logo}>🎬 Movie Search</NavLink>
       <button onClick={toggleTheme}>
         <ion-icon
           name={theme === "light" ? "moon-outline" : "sunny-outline"}

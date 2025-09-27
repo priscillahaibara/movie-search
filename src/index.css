@@ -18,9 +18,19 @@
   --color-accent: #3f72af;
   --color-text-primary: #222;
   --color-text-secondary: #333;
+  --color-text-light: #ffffff;
 
   /* Font */
-  --font-family-base: 'Inter', sans-serif;
+  --font-family-base: "Inter", sans-serif;
+  --font-size-xs: 1.2rem;
+  --font-size-sm: 1.4rem;
+  --font-size-base: 1.6rem;
+  --font-size-lg: 1.8rem;
+  --font-size-xl: 2rem;
+  --font-size-2xl: 2.4rem;
+  --font-size-3xl: 3rem;
+  --font-size-4xl: 3.6rem;
+  --font-size-5xl: 4.4rem;
 
   /* Spacing */
   /* Base 1rem = 10px */
@@ -45,7 +55,9 @@
   --color-text-secondary: #dddddd;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
