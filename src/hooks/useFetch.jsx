@@ -1,0 +1,38 @@
+import { useEffect, useState } from "react";
+
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (!url || url.trim().length < 3) return;
+
+    const controller = new AbortController();
+    const signal = controller.signal;
+    setData(null);
+    setIsLoading(true);
+    setError(null);
+
+    fetch(url, { signal })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Error: ${response.status}`);
+        return response.json();
+      })
+      .then((json) => {
+        setData(json);
+      })
+      .catch((err) => {
+        if (err.name !== "AbortError") setError(err.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+
+    return () => controller.abort();
+  }, [url]);
+
+  return { data, error, isLoading };
+}
+
+export default useFetch;
