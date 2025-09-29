@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function useFetch(url) {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -10,7 +10,7 @@ function useFetch(url) {
 
     const controller = new AbortController();
     const signal = controller.signal;
-    setData(null);
+    setData([]);
     setIsLoading(true);
     setError(null);
 
@@ -20,7 +20,8 @@ function useFetch(url) {
         return response.json();
       })
       .then((json) => {
-        setData(json);
+        setData(json.Search || []);
+        console.log(json)
       })
       .catch((err) => {
         if (err.name !== "AbortError") setError(err.message);
