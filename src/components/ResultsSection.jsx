@@ -14,7 +14,7 @@ function ResultsSection({data, error, isLoading}) {
       <div className='borderTop'></div>
       <h3>Movies List</h3>
       <div>{isLoading && 'Loading...'}</div>
-      <p></p>
+      <p>{error && data.length === 0 ? error : null }</p>
       <ul>
         {data.map(movie => (
           <MovieCard key={movie.imdbID} movie={movie}/>
