@@ -20,11 +20,17 @@ function useFetch(url) {
         return response.json();
       })
       .then((json) => {
+        if (json.Response === "False") {
+          throw new Error(json.Error) || "Unknown API error";
+        }
         setData(json.Search || []);
-        console.log(json)
+        console.log(json);
       })
       .catch((err) => {
-        if (err.name !== "AbortError") setError(err.message);
+        if (err.name !== "AbortError") {
+          setError(err.message);
+          console.log(err.message);
+        }
       })
       .finally(() => {
         setIsLoading(false);
