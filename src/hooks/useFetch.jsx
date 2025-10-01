@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+/* A reusable hook to fetch data with loading and error states */
+
 function useFetch(url) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
