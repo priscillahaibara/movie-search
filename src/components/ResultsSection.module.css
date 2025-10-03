@@ -9,3 +9,36 @@
   font-size: var(--font-size-xl);
 }
 
+.scrollContainer {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none; 
+}
+
+.movieCard {
+  flex: 0 0 auto;       
+  width: 150px;
+  height: 200px;         
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.movieCard img {
+  width: 100%;
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+}
+
