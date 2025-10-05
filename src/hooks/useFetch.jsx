@@ -23,9 +23,9 @@ function useFetch(url) {
       })
       .then((json) => {
         if (json.Response === "False") {
-          throw new Error(json.Error) || "Unknown API error";
+          throw new Error(json.Error);
         }
-        setData(json.Search || []);
+        setData(json.Search ? json.Search : json);
         console.log(json);
       })
       .catch((err) => {
