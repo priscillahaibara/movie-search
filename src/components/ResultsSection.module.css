@@ -5,7 +5,7 @@
 
 .results h3 {
   margin-top: var(--space-sm);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-2xs);
   font-size: var(--font-size-xl);
 }
 
