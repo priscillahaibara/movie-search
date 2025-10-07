@@ -1,0 +1,31 @@
+.posterContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: clamp(150px, 30vw, 250px);
+  margin-bottom: var(--space-sm);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.posterContainer img {
+  max-height: 90%;
+  margin-left: var(--space-xs);
+  border-radius: 4px;
+}
+
+.content {
+  padding: 0 var(--space-sm);
+}
+
+.content h2 {
+  margin-bottom: var(--space-xs);
+  text-align: center;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+.plot {
+    font-size: var(--font-size-md);
+}
