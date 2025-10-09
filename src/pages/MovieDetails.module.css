@@ -3,7 +3,7 @@
   align-items: center;
   width: 100%;
   height: clamp(150px, 30vw, 250px);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,16 +16,56 @@
 }
 
 .content {
-  padding: 0 var(--space-sm);
+  padding: 0 var(--space-md);
 }
 
 .content h2 {
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
   text-align: center;
   font-size: var(--font-size-lg);
   font-weight: 700;
 }
 
-.plot {
-    font-size: var(--font-size-md);
+.movieMeta {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.movieScoreContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-weight: 700;
+}
+
+.movieScore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background-color: #f5c518;
+  color: #000;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+}
+
+.movieScore::before {
+  content: "★";
+  color: #000;
+  font-size: var(--font-size-sm);
+}
+
+.borderRight {
+  height: 20px;
+  width: 1px;
+  border-right: 1px solid black;
+}
+
+.movieGenre {
+  font-weight: 700;
 }
