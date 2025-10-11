@@ -1,4 +1,4 @@
-.posterContainer {
+.hero {
   display: flex;
   align-items: center;
   width: 100%;
@@ -8,43 +8,44 @@
   background-size: cover;
 }
 
-.posterContainer img {
+.hero img {
   max-height: 90%;
   margin-left: var(--space-xs);
   border-radius: 4px;
 }
 
-.content {
- /*  padding: 0 var(--space-md); */
+.header {
+  padding: var(--space-md);
+  background-color: var(--color-background-alt);
+  color: var(--color-text-alt);
 }
 
-.contentBox {
-    padding: var(--space-md);
-    background-color: var(--color-background-alt);
-    color: var(--color-text-alt);
-}
-
-.content h2 {
+.header h2 {
   margin-bottom: var(--space-sm);
   text-align: center;
   font-size: var(--font-size-lg);
   font-weight: 700;
+  line-height: 1.3;
 }
 
-.movieMeta {
+.meta {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  line-height: 1.4;
 }
 
-.movieScoreContainer {
+.rating {
   display: flex;
   align-items: center;
   gap: var(--space-2xs);
-  font-weight: 700;
 }
 
-.movieScore {
+.ratingValue {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -59,18 +60,12 @@
   letter-spacing: 0.5px;
 }
 
-.movieScore::before {
+.ratingValue::before {
   content: "★";
   color: #000;
   font-size: var(--font-size-sm);
 }
 
-.borderRight {
-  height: 20px;
-  width: 1px;
-  border-right: 1px solid black;
-}
-
-.movieGenre {
-  font-weight: 700;
+.plot {
+  padding: var(--space-md);
 }

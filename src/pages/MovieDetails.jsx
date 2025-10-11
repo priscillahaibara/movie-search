@@ -4,9 +4,9 @@ import useMovieDetails from "../hooks/useMovieDetails";
 
 function MovieDetails() {
   const { id } = useParams();
-  const { data, error, isLoading } = useMovieDetails(id);
+  const { data } = useMovieDetails(id);
 
-  const posterContainerStyle = {
+  const heroStyle = {
     backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${data.Poster})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -14,28 +14,36 @@ function MovieDetails() {
   };
 
   return (
-    <section className={styles.sectionMovie}>
-      {console.log(data)}
-      <div className={styles.posterContainer} style={posterContainerStyle}>
-        <img src={data.Poster} />
-      </div>
-      <div className={styles.content}>
-        <div className={styles.contentBox}>
+    <main>
+      {/* Hero / Poster */}
+      <section className={styles.hero} style={heroStyle}>
+        {console.log(data)}
+        <img src={data.Poster} alt={data.Title} />
+      </section>
+
+      {/* Movie Info */}
+      <section className={styles.info}>
+        <header className={styles.header}>
           <h2>
             {data.Title} <span>({data.Year})</span>
           </h2>
-          <div className={styles.movieMeta}>
-            <div className={styles.movieScoreContainer}>
-              <div className={styles.movieScore}>{data.imdbRating}</div>
-              <span>IMDB rating</span>
+
+          {/* Rating */}
+          <div className={styles.meta}>
+            <div className={styles.rating}>
+              <div className={styles.ratingValue}>{data.imdbRating}</div>
+              <span className={styles.ratingLabel}>IMDb Rating</span>
             </div>
-            <div className={styles.borderRight}></div>
-            <div className={styles.movieGenre}>{data.Genre}</div>
+
+            {/* Genres */}
+            <div className={styles.genre}>{data.Genre}</div>
           </div>
-        </div>
+        </header>
+
+        {/* Plot */}
         <p className={styles.plot}>{data.Plot}</p>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }
 
