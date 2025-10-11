@@ -13,13 +13,11 @@
 /* Light theme */
 :root {
   --color-background: #ffffff;
-  --color-background-alt: #dbe2ef;
+  --color-background-alt: #262626;
   --color-background-input: #ffffff;
-  --color-primary: #112d4e;
-  --color-accent: #3f72af;
   --color-text-primary: #222;
   --color-text-secondary: #444;
-  --color-text-light: #ffffff;
+  --color-text-alt: #f5f5f5;
   --color-border: #eee;
 
   /* Font */
@@ -49,13 +47,11 @@
 
 /* Dark theme */
 [data-theme="dark"] {
-  --color-background: #070f2b;
-  --color-background-alt: #535c91;
-  --color-primary: #070f2b;
-  --color-accent: #1b1a55;
+  --color-background: #171717;
+  --color-background-alt: #171717;
   --color-text-primary: #eeeeee;
   --color-text-secondary: #dddddd;
-  --color-border: #202740;
+  --color-border: #303030;
 }
 
 *,
@@ -112,5 +108,5 @@ p {
  *************************************/
 
 .borderTop {
-  border-top: 1px solid var(--color-border)
+  border-top: 1px solid var(--color-border);
 }

@@ -3,7 +3,6 @@
   align-items: center;
   width: 100%;
   height: clamp(150px, 30vw, 250px);
-  margin-bottom: var(--space-md);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,7 +15,13 @@
 }
 
 .content {
-  padding: 0 var(--space-md);
+ /*  padding: 0 var(--space-md); */
+}
+
+.contentBox {
+    padding: var(--space-md);
+    background-color: var(--color-background-alt);
+    color: var(--color-text-alt);
 }
 
 .content h2 {

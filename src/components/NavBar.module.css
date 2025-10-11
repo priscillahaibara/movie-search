@@ -5,15 +5,18 @@
   width: 100%;
   height: var(--space-xl);
   padding: 0 var(--space-md);
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
+  background-color: rgba(38, 38, 38, 0.9);
+  color: var(--color-text-alt);
 }
 
 .logo {
-  text-transform: uppercase;
+  font-family: Impact;
   font-size: var(--font-size-base);
-  font-weight: 700;
   letter-spacing: 0.5px;
+  color: #000;
+  background-color: #f5c518;
+  border-radius: 4px;
+  padding: 0.6rem 0.8rem;
 }
 
 .nav button {

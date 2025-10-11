@@ -20,16 +20,18 @@ function MovieDetails() {
         <img src={data.Poster} />
       </div>
       <div className={styles.content}>
-        <h2>
-          {data.Title} <span>({data.Year})</span>
-        </h2>
-        <div className={styles.movieMeta}>
-          <div className={styles.movieScoreContainer}>
-            <div className={styles.movieScore}>{data.imdbRating}</div>
-            <span>IMDB rating</span>
+        <div className={styles.contentBox}>
+          <h2>
+            {data.Title} <span>({data.Year})</span>
+          </h2>
+          <div className={styles.movieMeta}>
+            <div className={styles.movieScoreContainer}>
+              <div className={styles.movieScore}>{data.imdbRating}</div>
+              <span>IMDB rating</span>
+            </div>
+            <div className={styles.borderRight}></div>
+            <div className={styles.movieGenre}>{data.Genre}</div>
           </div>
-          <div className={styles.borderRight}></div>
-          <div className={styles.movieGenre}>{data.Genre}</div>
         </div>
         <p className={styles.plot}>{data.Plot}</p>
       </div>

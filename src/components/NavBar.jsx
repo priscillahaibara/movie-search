@@ -8,7 +8,7 @@ function NavBar() {
 
   return (
     <nav className={styles.nav}>
-      <NavLink to="/" className={styles.logo}>🎬 Movie Search</NavLink>
+      <NavLink to="/" className={styles.logo}>CineDB</NavLink>
       <button onClick={toggleTheme}>
         <ion-icon
           name={theme === "light" ? "moon-outline" : "sunny-outline"}
