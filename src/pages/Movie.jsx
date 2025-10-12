@@ -14,6 +14,7 @@ function Movie() {
       <MoviePoster data={data} />
       <MovieHeader data={data} />
       <MovieInfo data={data} />
+      
     </main>
   );
 }
