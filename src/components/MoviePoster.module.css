@@ -1,0 +1,15 @@
+.hero {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: clamp(150px, 30vw, 250px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero img {
+  max-height: 90%;
+  margin-left: var(--space-xs);
+  border-radius: 4px;
+}

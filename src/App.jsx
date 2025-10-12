@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import Spinner from "./components/Spinner";
 
-const LazyMovieDetails = React.lazy(() => import("./pages/MovieDetails"));
+const LazyMovie = React.lazy(() => import("./pages/Movie"));
 const LazyFavorites = React.lazy(() => import("./pages/Favorites"));
 const LazyPageNotFound = React.lazy(() => import("./pages/PageNotFound"));
 
@@ -18,7 +18,7 @@ export default function App() {
           path="/movie/:id"
           element={
             <Suspense fallback={<Spinner />}>
-              <LazyMovieDetails />
+              <LazyMovie />
             </Suspense>
           }
         />
