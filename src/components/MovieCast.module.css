@@ -1,0 +1,11 @@
+.cast {
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-background-alt);
+  color: var(--color-text-alt);
+}
+
+.cast h3 {
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+}

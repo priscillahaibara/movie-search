@@ -1,7 +1,3 @@
 .info {
-  padding: var(--space-md);
-}
-
-.plot {
-  margin-bottom: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
 }

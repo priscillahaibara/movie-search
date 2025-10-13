@@ -1,5 +1,5 @@
 .header {
-  padding: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
   background-color: var(--color-background-alt);
   color: var(--color-text-alt);
 }
