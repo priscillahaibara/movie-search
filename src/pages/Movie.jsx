@@ -13,7 +13,7 @@ function Movie() {
   const { cast } = useMovieCast(data?.imdbID);
 
   return (
-    <main>
+    <main className={styles.main}>
       <MoviePoster data={data} />
       <MovieHeader data={data} />
       <MovieInfo data={data} />

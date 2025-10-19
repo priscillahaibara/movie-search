@@ -5,7 +5,31 @@
 }
 
 .cast h3 {
-    margin-bottom: var(--space-xs);
-    font-size: var(--font-size-lg);
-    font-weight: 600;
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+.cast ul {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cast ul::-webkit-scrollbar {
+  display: none; 
+}
+
+.actor img{
+  border-radius: 4px;
+  margin-bottom: var(--space-xs);
+}
+
+.actor h4 {
+  text-align: center;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
 }

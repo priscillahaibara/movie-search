@@ -8,12 +8,19 @@ function MovieCast({ cast }) {
       <h3>Cast</h3>
       <ul>
         {cast.map((actor) => (
-          <li key={actor.id}>{actor.name}
-          <img src={`https://image.tmdb.org/t/p/w185${actor.profile_path}`}/>
-          </li>
+          <MovieActor actor={actor} key={actor.id}/>
         ))}
       </ul>
     </section>
+  );
+}
+
+function MovieActor({ actor }) {
+  return (
+    <li className={styles.actor}>
+      <img src={`https://image.tmdb.org/t/p/w92${actor.profile_path}`} />
+      <h4>{actor.name}</h4>
+    </li>
   );
 }
 
