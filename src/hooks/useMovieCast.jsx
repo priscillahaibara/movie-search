@@ -15,7 +15,6 @@ function useMovieCast(imdbID) {
         );
         if (!findRes.ok) throw new Error(`Error: ${findRes.status}`);
         const findJson = await findRes.json();
-        console.log(findJson);
 
         // 2️⃣ Determine which type of result it is
         let mediaType = null;
@@ -36,19 +35,13 @@ function useMovieCast(imdbID) {
         }
 
         // 3️⃣ Fetch the correct credits
-        let creditsUrl = "";
-
-        if (mediaType === "movie") {
-          creditsUrl = `https://api.themoviedb.org/3/movie/${tmdbId}/credits?api_key=${TMDB_API_KEY}`;
-        } else if (mediaType === "tv") {
-          creditsUrl = `https://api.themoviedb.org/3/tv/${tmdbId}/credits?api_key=${TMDB_API_KEY}`;
-        }
-
+        const creditsUrl = `https://api.themoviedb.org/3/${mediaType}/${tmdbId}/credits?api_key=${TMDB_API_KEY}`;
         const creditsRes = await fetch(creditsUrl);
         const creditsJson = await creditsRes.json();
 
-        setCast(creditsJson);
-        console.log(creditsJson);
+        const mainCast = creditsJson.cast?.sort((a, b) => a.order - b.order).slice(0, 5) || []
+
+        setCast(mainCast);
       } catch (err) {
         console.error("Error fetching cast:", err);
       }
@@ -57,7 +50,7 @@ function useMovieCast(imdbID) {
     fetchCast();
   }, [imdbID]);
 
-  return <div></div>;
+  return { cast };
 }
 
 export default useMovieCast;
