@@ -10,7 +10,6 @@ function MoviePoster({ data }) {
 
   return (
     <section className={styles.hero} style={heroStyle}>
-      {console.log(data)}
       <img src={data.Poster} alt={data.Title} />
     </section>
   );
