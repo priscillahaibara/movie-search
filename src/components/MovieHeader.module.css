@@ -20,6 +20,11 @@
 .icon {
   font-size: var(--font-size-xl);
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.icon:hover {
+  transform: scale(1.1);
 }
 
 .meta {
