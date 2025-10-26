@@ -1,16 +1,6 @@
-import { Link } from "react-router-dom";
 import styles from "./ResultsSection.module.css";
 import Spinner from "./Spinner";
-
-function MovieCard({ movie }) {
-  return (
-    <li className={styles.movieCard}>
-      <Link to={`/movie/${movie.imdbID}`}>
-        <img src={`${movie.Poster}`} alt={`${movie.Title}`}/>
-      </Link>
-    </li>
-  );
-}
+import MovieCard from "./MovieCard";
 
 function ResultsSection({ data, error, isLoading }) {
   return (

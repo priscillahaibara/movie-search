@@ -1,7 +1,7 @@
 import SearchSection from "../components/SearchSection";
 import ResultsSection from "../components/ResultsSection";
-import FavoritesSection from "../components/FavoritesSection";
 import useMovieSearch from "../hooks/useMovieSearch";
+import TopSection from "../components/TopSection";
 
 function Home() {
   const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
@@ -11,7 +11,8 @@ function Home() {
     <main>
       <SearchSection query={query} setQuery={setQuery} />
       <ResultsSection data={data} error={error} isLoading={isLoading} />
-      <FavoritesSection />
+      <TopSection type='tv'/>
+      <TopSection type='movie'/>
     </main>
   );
 }
