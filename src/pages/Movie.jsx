@@ -18,7 +18,6 @@ function Movie() {
       <MovieHeader data={data} />
       <MovieInfo data={data} />
       <MovieCast cast={cast} />
-      {console.log(cast)}
     </main>
   );
 }

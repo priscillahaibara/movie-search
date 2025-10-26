@@ -25,13 +25,13 @@ function useFetch(url) {
         if (json.Response === "False") {
           throw new Error(json.Error);
         }
-        setData(json.Search ? json.Search : json);
-        console.log(json);
+        const results = json.Search ? json.Search : json
+        setData(results);
+        console.log(results)
       })
       .catch((err) => {
         if (err.name !== "AbortError") {
           setError(err.message);
-          console.log(err.message);
         }
       })
       .finally(() => {

@@ -42,6 +42,7 @@ function useMovieCast(imdbID) {
         const mainCast = creditsJson.cast?.sort((a, b) => a.order - b.order).slice(0, 5) || []
 
         setCast(mainCast);
+        console.log(mainCast)
       } catch (err) {
         console.error("Error fetching cast:", err);
       }
