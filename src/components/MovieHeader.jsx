@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./MovieHeader.module.css";
 
-function MovieHeader({ data }) {
+function MovieHeader({ title, year, genre, rating }) {
   const navigate = useNavigate();
   const handleReturn = () => {
     navigate(-1)
@@ -17,7 +17,7 @@ function MovieHeader({ data }) {
           ></ion-icon>
         </button>
         <h2>
-          {data.Title} <span>({data.Year})</span>
+          {title} <span>({year})</span>
         </h2>
         <ion-icon name="star-outline" className={styles.icon}></ion-icon>
       </div>
@@ -25,12 +25,12 @@ function MovieHeader({ data }) {
       {/* Rating */}
       <div className={styles.meta}>
         <div className={styles.rating}>
-          <div className={styles.ratingValue}>{data.imdbRating}</div>
-          <span className={styles.ratingLabel}>IMDb Rating</span>
+          <div className={styles.ratingValue}>{rating}</div>
+          <span className={styles.ratingLabel}>Rating</span>
         </div>
 
         {/* Genres */}
-        <div className={styles.genre}>{data.Genre}</div>
+        <div className={styles.genre}>{genre}</div>
       </div>
     </header>
   );

@@ -12,10 +12,20 @@ function Movie() {
   const { data } = useMovieDetails(id);
   const { cast } = useMovieCast(data?.imdbID);
 
+  const movie = {
+    title: data?.Title || data?.title,
+    year: data?.Year || data?.release_date?.slice(0, 4) || 'N/A',
+    genre:
+      data?.Genre || (data?.genres
+        ? data.genres.map((g) => g.name).join(", ")
+        : "Unknown"),
+    rating: data?.imdbRating || (data?.vote_average ? data.vote_average.toFixed(1) : 'N/A') 
+  };
+
   return (
     <main className={styles.main}>
       <MoviePoster data={data} />
-      <MovieHeader data={data} />
+      <MovieHeader title={movie.title} year={movie.year} genre={movie.genre} rating={movie.rating}/>
       <MovieInfo data={data} />
       <MovieCast cast={cast} />
     </main>

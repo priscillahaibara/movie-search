@@ -7,11 +7,17 @@ Custom hook for showing movie details
 
 function useMovieDetails(id) {
   const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
-  const { data, error, isLoading } = useFetch(
-    id ? `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}` : null
-  );
+  const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
-  return { data, error, isLoading };
+  const isOmdb = id.startsWith("tt");
+
+  const url = isOmdb
+    ? `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}`
+    : `https://api.themoviedb.org/3/movie/${id}?api_key=${TMDB_API_KEY}&language=en-US`;
+
+  const { data, error, isLoading } = useFetch(url);
+
+  return {data, error, isLoading}
 }
 
 export default useMovieDetails;

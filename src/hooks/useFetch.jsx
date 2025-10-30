@@ -22,16 +22,22 @@ function useFetch(url) {
         return response.json();
       })
       .then((json) => {
-        if (json.Response === "False") {
-          throw new Error(json.Error);
+        let results;
+
+        if (json.Search) {
+          results = json.Search
+        } else if (json.results) {
+          results = json.results
+        } else {
+          results = json
         }
-        const results = json.Search ? json.Search : json
         setData(results);
-        console.log(results)
+        console.log(results);
       })
       .catch((err) => {
         if (err.name !== "AbortError") {
           setError(err.message);
+          console.log(err.message);
         }
       })
       .finally(() => {

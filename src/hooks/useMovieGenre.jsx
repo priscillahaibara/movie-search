@@ -7,6 +7,7 @@ function useMovieGenre(type) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    setData([])
     setIsLoading(true);
     setError(null);
 
