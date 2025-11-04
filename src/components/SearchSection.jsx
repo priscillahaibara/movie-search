@@ -1,6 +1,7 @@
 import styles from "./SearchSection.module.css";
 
 function SearchSection({ query, setQuery }) {
+
   function handleChange(e) {
     setQuery(e.target.value);
   }

@@ -1,13 +1,15 @@
+import useMovies from "../hooks/useMovies";
 import styles from "./MovieCast.module.css";
 
-function MovieCast({ cast }) {
-  if (!cast?.length) return null;
+function MovieCast({ id }) {
+  
+  const {data, error, isLoading} = useMovies({id, type: 'tmdbCast'})
 
   return (
     <section className={styles.cast}>
       <h3>Cast</h3>
       <ul>
-        {cast.map((actor) => (
+        {data.map((actor) => (
           <MovieActor actor={actor} key={actor.id}/>
         ))}
       </ul>
