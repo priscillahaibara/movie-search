@@ -1,12 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import useApi from "./useApi";
-import { getTmdbData, getTmdbDataFromImdb } from "../utils/helpers";
+import { debounce, getTmdbData, getTmdbDataFromImdb } from "../utils/helpers";
 
 export default function useMovies({ type, id, query, media }) {
   const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
   const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
   const [url, setUrl] = useState("");
+
+  const debouncedSearch = useMemo(
+    () =>
+      debounce((query) => {
+        setUrl(
+          `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${query}`
+        );
+      }, 500),
+    []
+  );
 
   useEffect(() => {
     if (!type) return;
@@ -17,7 +27,8 @@ export default function useMovies({ type, id, query, media }) {
           setUrl("");
           return;
         }
-        setUrl(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${query}`);
+
+        debouncedSearch(query)
         break;
 
       case "omdbDetails":
@@ -47,8 +58,7 @@ export default function useMovies({ type, id, query, media }) {
 
         if (id.startsWith("tt")) {
           getTmdbDataFromImdb(id).then((data) => {
-            const tmdbResult =
-              data.movie_results?.[0] || data.tv_results?.[0];
+            const tmdbResult = data.movie_results?.[0] || data.tv_results?.[0];
 
             if (!tmdbResult) return;
 
@@ -70,7 +80,7 @@ export default function useMovies({ type, id, query, media }) {
       default:
         setUrl("");
     }
-  }, [type, id, query, media]);
+  }, [type, id, query, media, debouncedSearch]);
 
   const transform = (json) => {
     switch (type) {
