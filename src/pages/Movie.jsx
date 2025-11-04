@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import styles from "./Movie.module.css";
 import useMovies from "../hooks/useMovies";
-/* import useMovieCast from "../hooks/useMovieCast"; */
 import MoviePoster from "../components/MoviePoster";
 import MovieHeader from "../components/MovieHeader";
 import MovieInfo from "../components/MovieInfo";

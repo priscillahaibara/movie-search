@@ -1,10 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./MovieHeader.module.css";
+import { saveMovie } from "../utils/helpers";
+import { useState } from "react";
 
 function MovieHeader({ data }) {
   const navigate = useNavigate();
+
   const handleReturn = () => {
     navigate(-1);
+  };
+
+  const handleFavorites = (data) => {
+    saveMovie(data)
   };
 
   return (
@@ -20,7 +27,9 @@ function MovieHeader({ data }) {
           {data.Title || "Untitled"}
           <span>{data.Year ? ` (${data.Year})` : ""}</span>
         </h2>
-        <ion-icon name="star-outline" className={styles.icon}></ion-icon>
+        <button type="button" onClick={() => handleFavorites(data)}>
+          <ion-icon name="star-outline" className={styles.icon}></ion-icon>
+        </button>
       </div>
 
       <div className={styles.meta}>

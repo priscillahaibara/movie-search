@@ -28,3 +28,18 @@ export function debounce(func, delay) {
     timeoutId = setTimeout(() => func.apply(this, args), delay)
   }
 }
+
+export function loadMovie() {
+  const favoriteMovies = JSON.parse(localStorage.getItem('favorites')) || []
+  return favoriteMovies
+}
+
+export function saveMovie(movie) {
+  const favoriteMovies = loadMovie();
+  const isDuplicate = favoriteMovies.includes(movie.imdbID)
+
+  if (!isDuplicate) {
+    favoriteMovies.push(movie.imdbID);
+    localStorage.setItem('favorites', JSON.stringify(favoriteMovies));
+  }
+}
