@@ -10,7 +10,6 @@ import MovieCast from "../components/MovieCast";
 function Movie() {
   const { id } = useParams();
   const { data } = useMovies({ id, type: "omdbDetails" });
-  console.log(data);
 
   return (
     <main className={styles.main}>

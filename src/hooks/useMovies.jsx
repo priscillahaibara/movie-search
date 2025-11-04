@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useApi from "./useApi";
-import { getImdbIdFromTmdb, getTmdbIdFromImdb } from "../utils/helpers";
+import { getTmdbData, getTmdbDataFromImdb } from "../utils/helpers";
 
 export default function useMovies({ type, id, query, media }) {
   const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
@@ -9,6 +9,8 @@ export default function useMovies({ type, id, query, media }) {
   const [url, setUrl] = useState("");
 
   useEffect(() => {
+    if (!type) return;
+
     switch (type) {
       case "omdbSearch":
         if (!query || query.trim().length < 2) {
@@ -18,22 +20,20 @@ export default function useMovies({ type, id, query, media }) {
         setUrl(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${query}`);
         break;
 
-      case "omdbDetails": {
+      case "omdbDetails":
         if (!id) return;
 
-        const isOmdb = id.startsWith("tt");
-        if (isOmdb) {
+        if (id.startsWith("tt")) {
           setUrl(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}`);
         } else {
-          getImdbIdFromTmdb(id).then((imdbId) =>
+          getTmdbData(id).then((tmdbData) => {
+            if (!tmdbData?.imdb_id) return;
             setUrl(
-              `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${imdbId}`
-            )
-          );
+              `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${tmdbData.imdb_id}`
+            );
+          });
         }
-
         break;
-      }
 
       case "tmdbTopRated":
         if (!media) return;
@@ -45,21 +45,26 @@ export default function useMovies({ type, id, query, media }) {
       case "tmdbCast":
         if (!id) return;
 
-        getTmdbIdFromImdb(id).then((data) => {
-          let mediaType = null;
-          let tmdbId = null;
+        if (id.startsWith("tt")) {
+          getTmdbDataFromImdb(id).then((data) => {
+            const tmdbResult =
+              data.movie_results?.[0] || data.tv_results?.[0];
 
-          if (data.movie_results?.length) {
-            mediaType = "movie";
-            tmdbId = data.movie_results[0].id;
-          } else if (data.tv_results?.length) {
-            mediaType = "tv";
-            tmdbId = data.tv_results[0].id;
-          }
+            if (!tmdbResult) return;
+
+            const mediaType = data.movie_results?.length ? "movie" : "tv";
+            const tmdbId = tmdbResult.id;
+
+            setUrl(
+              `https://api.themoviedb.org/3/${mediaType}/${tmdbId}/credits?api_key=${TMDB_API_KEY}`
+            );
+          });
+        } else {
+          const mediaType = media === "tv" ? "tv" : "movie";
           setUrl(
-            `https://api.themoviedb.org/3/${mediaType}/${tmdbId}/credits?api_key=${TMDB_API_KEY}`
+            `https://api.themoviedb.org/3/${mediaType}/${id}/credits?api_key=${TMDB_API_KEY}`
           );
-        });
+        }
         break;
 
       default:
@@ -74,7 +79,7 @@ export default function useMovies({ type, id, query, media }) {
       case "tmdbTopRated":
         return json?.results || [];
       case "tmdbCast":
-        return json?.cast || [];
+        return json?.cast.slice(0, 10) || [];
       default:
         return json;
     }
