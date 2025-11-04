@@ -4,7 +4,7 @@ import styles from "./MovieHeader.module.css";
 function MovieHeader({ data }) {
   const navigate = useNavigate();
   const handleReturn = () => {
-    navigate(-1)
+    navigate(-1);
   };
 
   return (
@@ -17,7 +17,8 @@ function MovieHeader({ data }) {
           ></ion-icon>
         </button>
         <h2>
-          {data.Title} <span>({data.Year})</span>
+          {data.Title || "Untitled"}
+          <span>{data.Year ? ` (${data.Year})` : ""}</span>
         </h2>
         <ion-icon name="star-outline" className={styles.icon}></ion-icon>
       </div>
