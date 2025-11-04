@@ -30,16 +30,21 @@ export function debounce(func, delay) {
 }
 
 export function loadMovie() {
-  const favoriteMovies = JSON.parse(localStorage.getItem('favorites')) || []
-  return favoriteMovies
+  const savedMovies = JSON.parse(localStorage.getItem('favorites')) || []
+  return savedMovies
 }
 
 export function saveMovie(movie) {
-  const favoriteMovies = loadMovie();
-  const isDuplicate = favoriteMovies.includes(movie.imdbID)
+  const savedMovies = loadMovie();
+  const isDuplicate = savedMovies.includes(movie.imdbID)
+
+  let updatedMovies;
 
   if (!isDuplicate) {
-    favoriteMovies.push(movie.imdbID);
-    localStorage.setItem('favorites', JSON.stringify(favoriteMovies));
-  }
+    updatedMovies = [...savedMovies, movie.imdbID]
+  } else {
+    updatedMovies = savedMovies.filter((id) => id !== movie.imdbID)
+  } 
+
+  localStorage.setItem('favorites', JSON.stringify(updatedMovies))
 }

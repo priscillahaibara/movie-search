@@ -1,17 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./MovieHeader.module.css";
-import { saveMovie } from "../utils/helpers";
-import { useState } from "react";
+import { loadMovie, saveMovie } from "../utils/helpers";
+import { useEffect, useState } from "react";
 
 function MovieHeader({ data }) {
   const navigate = useNavigate();
+  const [isMovieSaved, setIsMovieSaved] = useState(false);
+
+  useEffect(() => {
+    const savedMovies = loadMovie();
+    setIsMovieSaved(savedMovies.includes(data.imdbID));
+  }, [data.imdbID]);
 
   const handleReturn = () => {
     navigate(-1);
   };
 
   const handleFavorites = (data) => {
-    saveMovie(data)
+    saveMovie(data);
+    const savedMovies = loadMovie();
+    setIsMovieSaved(savedMovies.includes(data.imdbID));
   };
 
   return (
@@ -28,7 +36,10 @@ function MovieHeader({ data }) {
           <span>{data.Year ? ` (${data.Year})` : ""}</span>
         </h2>
         <button type="button" onClick={() => handleFavorites(data)}>
-          <ion-icon name="star-outline" className={styles.icon}></ion-icon>
+          <ion-icon
+            name={isMovieSaved ? "star" : "star-outline"}
+            className={styles.icon}
+          ></ion-icon>
         </button>
       </div>
 
