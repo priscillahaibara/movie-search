@@ -25,7 +25,7 @@ function Menu({ isOpen, toggleMenu }) {
           <span className={styles.genres}>Genres</span>
           <ion-icon
             name={showGenres ? "chevron-up-outline" : "chevron-down-outline"}
-            className={`${styles.chevronIcon} ${showGenres ? styles.rotate : ''}`}
+            className={styles.chevronIcon}
           ></ion-icon>
         </li>
 

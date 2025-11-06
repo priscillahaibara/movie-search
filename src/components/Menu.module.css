@@ -74,15 +74,13 @@
 }
 
 .chevronIcon {
-  position: relative; 
-  top: 1px; 
+  position: relative;
+  top: 1px;
   left: var(--space-2xs);
   font-size: var(--font-size-base);
-  transition: transform 0.3s ease;
-}
-
-.chevronIcon.rotate {
-  transform: rotate(180deg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes fadeIn {
