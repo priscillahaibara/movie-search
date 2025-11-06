@@ -21,8 +21,10 @@
   padding: 0.6rem 0.8rem;
 }
 
-.nav button {
+.icon {
   font-size: 20px;
   --ionicon-stroke-width: 40px;
   cursor: pointer;
+  display: block;
+  line-height: 1;
 }

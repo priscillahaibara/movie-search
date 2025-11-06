@@ -23,7 +23,7 @@
   width: 70vw;
   height: 100vh;
   padding: var(--space-xl) var(--space-lg);
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--color-menu);
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
@@ -45,7 +45,7 @@
 }
 
 .menu li:hover {
-  background-color: #e5e5e5;
+  background-color: var(--color-menu-hover);
   border-radius: 4px;
 }
 
@@ -58,7 +58,7 @@
   top: var(--space-sm);
   right: var(--space-sm);
   font-size: 2rem;
-  color: black;
+  color: var(--color-text-secondary);
   cursor: pointer;
 }
 

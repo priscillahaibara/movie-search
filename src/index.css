@@ -19,6 +19,8 @@
   --color-text-secondary: #444;
   --color-text-alt: #f5f5f5;
   --color-border: #eee;
+  --color-menu: rgba(255, 255, 255, 0.95);
+  --color-menu-hover: #e5e5e5;
 
   /* Font */
   --font-family-base: "Inter", sans-serif;
@@ -52,6 +54,8 @@
   --color-text-primary: #eeeeee;
   --color-text-secondary: #dddddd;
   --color-border: #303030;
+  --color-menu: rgb(38, 38, 38, 0.95);
+  --color-menu-hover: #404040;
 }
 
 *,
