@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./Menu.module.css";
+import { Link } from "react-router-dom";
 
 function Menu({ isOpen, toggleMenu }) {
   const [showGenres, setShowGenres] = useState(false);
@@ -32,13 +33,22 @@ function Menu({ isOpen, toggleMenu }) {
         {showGenres && (
           <ul className={styles.genresList}>
             {genres.map((genre) => (
-              <li key={genre}>{genre}</li>
+              <li key={genre}>
+                <Link to={`/genre/${genre.toLowerCase()}`}>{genre}</Link>
+              </li>
             ))}
           </ul>
         )}
 
-        <li>Favorites</li>
-        <li>Settings</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/favorites">Favorites</Link>
+        </li>
+        <li>
+          <Link to="/settings">Settings</Link>
+        </li>
       </ul>
     </>
   );

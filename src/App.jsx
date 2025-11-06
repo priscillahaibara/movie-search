@@ -5,7 +5,9 @@ import NavBar from "./components/NavBar";
 import Spinner from "./components/Spinner";
 
 const LazyMovie = React.lazy(() => import("./pages/Movie"));
+const LazyGenres = React.lazy(() => import('./pages/Genres'))
 const LazyFavorites = React.lazy(() => import("./pages/Favorites"));
+const LazySettings = React.lazy(() => import("./pages/Settings"));
 const LazyPageNotFound = React.lazy(() => import("./pages/PageNotFound"));
 
 export default function App() {
@@ -23,10 +25,26 @@ export default function App() {
           }
         />
         <Route
+          path="/genre/:genreName"
+          element={
+            <Suspense fallback={<Spinner />}>
+              <LazyGenres />
+            </Suspense>
+          }
+        />
+        <Route
           path="/favorites"
           element={
             <Suspense fallback={<Spinner />}>
               <LazyFavorites />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <Suspense fallback={<Spinner />}>
+              <LazySettings />
             </Suspense>
           }
         />

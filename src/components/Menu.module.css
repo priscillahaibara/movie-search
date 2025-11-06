@@ -24,6 +24,9 @@
   height: 100vh;
   padding: var(--space-xl) var(--space-lg);
   background-color: rgba(255, 255, 255, 0.95);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   z-index: 102;
