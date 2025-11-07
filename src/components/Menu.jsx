@@ -1,22 +1,8 @@
 import { useState } from "react";
 import styles from "./Menu.module.css";
 import { Link } from "react-router-dom";
+import { genreMap } from "../utils/helpers";
 import MenuSection from "./MenuSection";
-
-const genreMap = {
-  movie: {
-    Action: 28,
-    Comedy: 35,
-    Drama: 18,
-    Horror: 27,
-    Romance: 10749,
-  },
-  tv: {
-    Action: 10759,
-    Comedy: 35,
-    Drama: 18,
-  },
-};
 
 function Menu({ isOpen, toggleMenu }) {
   const [showMovies, setShowMovies] = useState(false);
@@ -49,7 +35,7 @@ function Menu({ isOpen, toggleMenu }) {
         >
           {Object.keys(genreMap.movie).map((genre) => (
             <li key={genre}>
-              <Link to={`/movie/${genre.toLowerCase()}`} onClick={toggleMenu}>
+              <Link to={`/movie/${genre}`} onClick={toggleMenu}>
                 {genre}
               </Link>
             </li>
@@ -64,7 +50,7 @@ function Menu({ isOpen, toggleMenu }) {
           {showSeries &&
             Object.keys(genreMap.tv).map((genre) => (
               <li key={genre}>
-                <Link to={`/tv/${genre.toLowerCase()}`} onClick={toggleMenu}>
+                <Link to={`/tv/${genre}`} onClick={toggleMenu}>
                   {genre}
                 </Link>
               </li>

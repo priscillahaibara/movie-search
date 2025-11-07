@@ -17,7 +17,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/movie/:id"
+          path="/search/:id"
           element={
             <Suspense fallback={<Spinner />}>
               <LazyMovie />
@@ -25,7 +25,7 @@ export default function App() {
           }
         />
         <Route
-          path="/genre/:media/:genre"
+          path="/:media/:genre"
           element={
             <Suspense fallback={<Spinner />}>
               <LazyGenres />

@@ -1,3 +1,19 @@
+export const genreMap = {
+    movie: {
+      action: 28,
+      comedy: 35,
+      drama: 18,
+      horror: 27,
+      romance: 10749,
+    },
+    tv: {
+      action: 10759,
+      comedy: 35,
+      drama: 18,
+    },
+  };
+
+
 export async function getTmdbData(tmdbId) {
   const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 

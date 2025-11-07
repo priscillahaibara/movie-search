@@ -4,10 +4,10 @@ import {
   debounce,
   getTmdbData,
   getTmdbDataFromImdb,
-  loadMovie,
+  loadMovie
 } from "../utils/helpers";
 
-export default function useMovies({ type, id, query, media }) {
+export default function useMovies({ type, id, genreId, query, media, genre }) {
   const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
   const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
@@ -83,8 +83,9 @@ export default function useMovies({ type, id, query, media }) {
 
       case "tmdbByGenre":
         {
-          if (!id) return;
-          
+          setUrl(
+            `https://api.themoviedb.org/3/discover/${media}?api_key=${TMDB_API_KEY}&with_genres=${genreId}`
+          );
         }
         break;
 
@@ -115,7 +116,7 @@ export default function useMovies({ type, id, query, media }) {
       default:
         setUrl("");
     }
-  }, [type, id, query, media, debouncedSearch]);
+  }, [type, id, genreId, query, media, genre, debouncedSearch]);
 
   const transform = (json) => {
     switch (type) {
@@ -125,6 +126,8 @@ export default function useMovies({ type, id, query, media }) {
         return json?.results || [];
       case "tmdbCast":
         return json?.cast.slice(0, 10) || [];
+      case 'tmdbByGenre':
+        return json?.results || [];
       default:
         return json;
     }
