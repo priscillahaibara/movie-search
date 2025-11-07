@@ -1,19 +1,23 @@
 import { useEffect, useState, useMemo } from "react";
 import useApi from "./useApi";
-import { debounce, getTmdbData, getTmdbDataFromImdb } from "../utils/helpers";
+import {
+  debounce,
+  getTmdbData,
+  getTmdbDataFromImdb,
+  loadMovie,
+} from "../utils/helpers";
 
 export default function useMovies({ type, id, query, media }) {
   const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
   const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
   const [url, setUrl] = useState("");
+  const [savedMovies, setSavedMovies] = useState([]);
 
   const debouncedSearch = useMemo(
     () =>
       debounce((query) => {
-        setUrl(
-          `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${query}`
-        );
+        setUrl(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${query}`);
       }, 500),
     []
   );
@@ -28,7 +32,7 @@ export default function useMovies({ type, id, query, media }) {
           return;
         }
 
-        debouncedSearch(query)
+        debouncedSearch(query);
         break;
 
       case "omdbDetails":
@@ -77,6 +81,30 @@ export default function useMovies({ type, id, query, media }) {
         }
         break;
 
+      case "favorites":
+        {
+          const savedIds = loadMovie(); 
+          if (savedIds.length) {
+            Promise.all(
+              savedIds.map((imdbId) =>
+                fetch(
+                  `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${imdbId}`
+                )
+                  .then((res) => res.json())
+                  .catch(() => null)
+              )
+            ).then((results) => {
+              const validMovies = results.filter(
+                (m) => m && m.Response !== "False"
+              );
+              setSavedMovies(validMovies);
+            });
+          } else {
+            setSavedMovies([]);
+          }
+        }
+        break;
+
       default:
         setUrl("");
     }
@@ -97,5 +125,5 @@ export default function useMovies({ type, id, query, media }) {
 
   const { data, error, isLoading } = useApi(url, transform);
 
-  return { data, error, isLoading };
+  return { data, error, isLoading, savedMovies };
 }
