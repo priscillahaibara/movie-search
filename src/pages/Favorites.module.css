@@ -1,0 +1,23 @@
+.favorites {
+  padding: var(--space-lg) var(--space-md);
+}
+
+.favorites h1 {
+  margin-bottom: var(--space-md);
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  column-gap: var(--space-md);
+  row-gap: var(--space-lg);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.section::-webkit-scrollbar {
+  display: none;
+}

@@ -1,3 +1,4 @@
+import styles from './Favorites.module.css'
 import useMovies from "../hooks/useMovies";
 import MovieCard from "../components/MovieCard";
 
@@ -5,9 +6,9 @@ function Favorites() {
   const { savedMovies } = useMovies({ type: "favorites" });
 
   return (
-    <main>
+    <main className={styles.favorites}>
       <h1>Favorites</h1>
-      <section>
+      <section className={styles.section}>
         {savedMovies.map((movie) => (
           <MovieCard movie={movie} key={movie.imdbID} />
         ))}
