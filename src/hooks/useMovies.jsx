@@ -81,9 +81,16 @@ export default function useMovies({ type, id, query, media }) {
         }
         break;
 
+      case "tmdbByGenre":
+        {
+          if (!id) return;
+          
+        }
+        break;
+
       case "favorites":
         {
-          const savedIds = loadMovie(); 
+          const savedIds = loadMovie();
           if (savedIds.length) {
             Promise.all(
               savedIds.map((imdbId) =>

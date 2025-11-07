@@ -1,0 +1,23 @@
+.genres {
+  position: relative;
+  display: inline-flex;
+  align-items: center; 
+}
+
+.genresList {
+  animation: fadeIn 0.3s ease;
+}
+
+.genresList li{
+  font-weight: 400;
+}
+
+.chevronIcon {
+  position: relative;
+  top: 1px;
+  left: var(--space-2xs);
+  font-size: var(--font-size-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

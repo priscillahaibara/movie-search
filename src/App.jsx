@@ -25,7 +25,7 @@ export default function App() {
           }
         />
         <Route
-          path="/genre/:genreName"
+          path="/genre/:media/:genre"
           element={
             <Suspense fallback={<Spinner />}>
               <LazyGenres />

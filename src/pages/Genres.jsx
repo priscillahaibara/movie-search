@@ -1,10 +1,14 @@
 import { useParams } from "react-router-dom";
+import useMovies from "../hooks/useMovies";
 
 function Genres() {
-    const { genreName } = useParams();
-  return <h1>
-    {genreName}
-  </h1>;
+  const { media, genre } = useParams();
+
+  return (
+    <main>
+      <h1>{genre.toUpperCase()}</h1>
+    </main>
+  );
 }
 
 export default Genres;

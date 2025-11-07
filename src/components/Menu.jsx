@@ -1,13 +1,33 @@
 import { useState } from "react";
 import styles from "./Menu.module.css";
 import { Link } from "react-router-dom";
+import MenuSection from "./MenuSection";
+
+const genreMap = {
+  movie: {
+    Action: 28,
+    Comedy: 35,
+    Drama: 18,
+    Horror: 27,
+    Romance: 10749,
+  },
+  tv: {
+    Action: 10759,
+    Comedy: 35,
+    Drama: 18,
+  },
+};
 
 function Menu({ isOpen, toggleMenu }) {
-  const [showGenres, setShowGenres] = useState(false);
-  const genres = ["Action", "Comedy", "Drama", "Horror", "Romance", "Series"];
+  const [showMovies, setShowMovies] = useState(false);
+  const [showSeries, setShowSeries] = useState(false);
 
-  function handleGenres() {
-    setShowGenres((g) => !g);
+  function handleToggle(media) {
+    if (media === "movies") {
+      setShowMovies((m) => !m);
+    } else if (media === "series") {
+      setShowSeries((s) => !s);
+    }
   }
 
   return (
@@ -22,23 +42,34 @@ function Menu({ isOpen, toggleMenu }) {
           <ion-icon name="close"></ion-icon>
         </button>
 
-        <li onClick={handleGenres}>
-          <span className={styles.genres}>Genres</span>
-          <ion-icon
-            name={showGenres ? "chevron-up-outline" : "chevron-down-outline"}
-            className={styles.chevronIcon}
-          ></ion-icon>
-        </li>
+        <MenuSection
+          onToggle={() => handleToggle("movies")}
+          media="Movies"
+          isOpen={showMovies}
+        >
+          {Object.keys(genreMap.movie).map((genre) => (
+            <li key={genre}>
+              <Link to={`/movie/${genre.toLowerCase()}`} onClick={toggleMenu}>
+                {genre}
+              </Link>
+            </li>
+          ))}
+        </MenuSection>
 
-        {showGenres && (
-          <ul className={styles.genresList}>
-            {genres.map((genre) => (
+        <MenuSection
+          onToggle={() => handleToggle("series")}
+          media="Series"
+          isOpen={showSeries}
+        >
+          {showSeries &&
+            Object.keys(genreMap.tv).map((genre) => (
               <li key={genre}>
-                <Link to={`/genre/${genre.toLowerCase()}`}>{genre}</Link>
+                <Link to={`/tv/${genre.toLowerCase()}`} onClick={toggleMenu}>
+                  {genre}
+                </Link>
               </li>
             ))}
-          </ul>
-        )}
+        </MenuSection>
 
         <li>
           <Link to="/">Home</Link>
