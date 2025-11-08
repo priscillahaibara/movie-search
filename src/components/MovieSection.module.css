@@ -1,9 +1,9 @@
-.top {
+.movieSection {
   margin-top: var(--space-md);
   padding: 0 var(--space-md);
 }
 
-.top h3 {
+.movieSection h3 {
   margin-top: var(--space-sm);
   margin-bottom: var(--space-2xs);
   font-size: var(--font-size-xl);

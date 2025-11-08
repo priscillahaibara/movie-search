@@ -1,6 +1,6 @@
 import SearchSection from "../components/SearchSection";
 import ResultsSection from "../components/ResultsSection";
-import TopSection from "../components/TopSection";
+import MovieSection from "../components/MovieSection";
 import useMovies from "../hooks/useMovies";
 import { useState } from "react";
 
@@ -12,8 +12,9 @@ function Home() {
     <main>
       <SearchSection query={query} setQuery={setQuery} suggestions={data} />
       <ResultsSection data={data} error={error} isLoading={isLoading} />
-      <TopSection media="tv" />
-      <TopSection media="movie" />
+      <MovieSection title='Latest Releases' media='movie' type='tmdbLatest'/>
+      <MovieSection title='Top movies' media='movie' type='tmdbTopRated'/>
+      <MovieSection title="Top series" media='tv' type='tmdbTopRated'/>
     </main>
   );
 }
