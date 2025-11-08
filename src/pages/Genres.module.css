@@ -1,13 +1,13 @@
-.favorites {
+.genres {
   padding: var(--space-lg) var(--space-md);
 }
 
-.favorites h1 {
+.genres h1 {
   margin-bottom: var(--space-md);
   font-size: var(--font-size-2xl);
 }
 
-.sectionFavorites {
+.sectionGenres {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
@@ -20,6 +20,6 @@
   -ms-overflow-style: none;
 }
 
-.sectionFavorites::-webkit-scrollbar {
+.sectionGenres::-webkit-scrollbar {
   display: none;
 }

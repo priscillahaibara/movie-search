@@ -9,8 +9,7 @@ function Favorites() {
     <main className={styles.favorites}>
       <h1>Favorites</h1>
       <div className="borderTop"></div>
-      <section className={styles.sectionSettings}></section>
-      <section className={styles.section}>
+      <section className={styles.sectionFavorites}>
         {savedMovies.map((movie) => (
           <MovieCard movie={movie} key={movie.imdbID} />
         ))}
