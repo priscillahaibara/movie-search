@@ -8,13 +8,9 @@ function Home() {
   const [query, setQuery] = useState("");
   const { data, error, isLoading } = useMovies({ type: "omdbSearch", query });
 
-  function handleSuggestion(title) {
-    setQuery(title);
-  }
-
   return (
     <main>
-      <SearchSection query={query} setQuery={setQuery} suggestions={data} onSuggestion={handleSuggestion}/>
+      <SearchSection query={query} setQuery={setQuery} suggestions={data} />
       <ResultsSection data={data} error={error} isLoading={isLoading} />
       <TopSection media="tv" />
       <TopSection media="movie" />
