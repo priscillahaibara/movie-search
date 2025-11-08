@@ -45,6 +45,11 @@ export function debounce(func, delay) {
   }
 }
 
+export function capitalizeFirstLetter(string) {
+  if (!string) return '';
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 export function loadMovie() {
   const savedMovies = JSON.parse(localStorage.getItem('favorites')) || []
   return savedMovies
@@ -64,3 +69,4 @@ export function saveMovie(movie) {
 
   localStorage.setItem('favorites', JSON.stringify(updatedMovies))
 }
+

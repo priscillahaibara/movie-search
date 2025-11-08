@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./Menu.module.css";
 import { Link } from "react-router-dom";
-import { genreMap } from "../utils/helpers";
+import { genreMap, capitalizeFirstLetter } from "../utils/helpers";
 import MenuSection from "./MenuSection";
 
 function Menu({ isOpen, toggleMenu }) {
@@ -36,7 +36,7 @@ function Menu({ isOpen, toggleMenu }) {
           {Object.keys(genreMap.movie).map((genre) => (
             <li key={genre}>
               <Link to={`/movie/${genre}`} onClick={toggleMenu}>
-                {genre}
+                {capitalizeFirstLetter(genre)}
               </Link>
             </li>
           ))}
@@ -51,7 +51,7 @@ function Menu({ isOpen, toggleMenu }) {
             Object.keys(genreMap.tv).map((genre) => (
               <li key={genre}>
                 <Link to={`/tv/${genre}`} onClick={toggleMenu}>
-                  {genre}
+                  {capitalizeFirstLetter(genre)}
                 </Link>
               </li>
             ))}

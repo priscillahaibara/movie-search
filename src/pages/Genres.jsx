@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import useMovies from "../hooks/useMovies";
-import { genreMap } from "../utils/helpers";
+import { capitalizeFirstLetter, genreMap } from "../utils/helpers";
 
 function Genres() {
   const { media, genre } = useParams();
@@ -13,7 +13,7 @@ function Genres() {
 
   return (
     <main>
-      <h1>{genre.toUpperCase()}</h1>
+      <h1>{capitalizeFirstLetter(genre)}</h1>
     </main>
   );
 }
