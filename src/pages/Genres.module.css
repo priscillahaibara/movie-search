@@ -34,7 +34,7 @@
 
 .pagination button {
   background-color: var(--color-background-accent);
-  color: var(--color-text-primary);
+  color: var(--color-text-accent);
   font-family: inherit;
   font-size: var(--font-size-sm);
   font-weight: 600;
@@ -50,4 +50,5 @@
 
 .pageText {
   font-size: var(--font-size-sm);
+  font-weight: 500;
 }
