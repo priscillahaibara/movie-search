@@ -1,11 +1,39 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
 .search {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
   width: 100%;
   margin: 0 auto;
-  padding: 0 var(--space-md) var(--space-md);
-  background-color: var(--color-background-alt)
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-md);
+  background-color: var(--color-background-alt);
+
+  background-image: url("../assets/theater.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.search h1 {
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-3xl);
+  letter-spacing: -0.5px;
+  color: var(--color-text-alt);
+  z-index: 1;
+}
+
+.search span {
+  color: #f5c518;
 }
 
 .search h2 {
@@ -14,6 +42,7 @@
   font-weight: 500;
   color: var(--color-text-alt);
   line-height: 1.4;
+  z-index: 1;
 }
 
 .inputWrapper {
@@ -21,7 +50,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 80%;
   margin: 0 auto var(--space-xs);
   background-color: var(--color-background-input);
   box-shadow: 1px 1px 4px 0.5px rgba(0, 0, 0, 0.2);

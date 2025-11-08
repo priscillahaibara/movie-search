@@ -13,6 +13,8 @@ function SearchSection({ query, setQuery, suggestions }) {
 
   return (
     <section className={styles.search}>
+      <div className={styles.overlay}></div>
+      <h1>The Cine<span>DB</span></h1>
       <h2>Here you can find your favorite movies.</h2>
       <div className={styles.inputWrapper}>
         <input
