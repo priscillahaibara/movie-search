@@ -26,10 +26,10 @@
 .inputWrapper {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  max-width: 400px;
-  margin-bottom: var(--space-xs);
+  width: 90%;
+  margin: 0 auto var(--space-xs);
   background-color: var(--color-background-input);
   box-shadow: 1px 1px 4px 0.5px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
