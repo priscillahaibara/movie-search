@@ -1,0 +1,8 @@
+main {
+  padding: var(--space-lg) var(--space-md);
+}
+
+main {
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-2xl);
+}

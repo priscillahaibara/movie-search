@@ -1,8 +1,10 @@
+import styles from './PageNotFound.module.css'
+
 function PageNotFound() {
     return (
-        <div>
+        <main>
             Page not found.
-        </div>
+        </main>
     )
 }
 

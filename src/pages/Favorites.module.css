@@ -23,3 +23,15 @@
 .sectionFavorites::-webkit-scrollbar {
   display: none;
 }
+
+.error {
+  justify-self: start;
+  color: var(--color-error);
+  margin-top: var(--space-md);
+  font-weight: 500;
+}
+
+.empty {
+  color: var(--color-text-secondary);
+  margin-top: var(--space-md);
+}

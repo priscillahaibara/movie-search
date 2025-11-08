@@ -7,8 +7,15 @@ function ResultsSection({ data, error, isLoading }) {
     <section className={styles.results}>
       <div className="borderTop"></div>
       <h3>Movies List</h3>
-      <div>{isLoading && <Spinner />}</div>
-      <p>{error && data.length === 0 ? error : null}</p>
+
+      {isLoading && <Spinner />}
+
+      {error && !data?.length ? (
+        <p className={styles.error}>
+          ⚠️ Something went wrong: {error.message || error.toString()}
+        </p>
+      ) : null}
+
       <ul className={styles.scrollContainer}>
         {data.map((movie) => (
           <MovieCard key={movie.imdbID} movie={movie} />

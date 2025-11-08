@@ -23,5 +23,10 @@
   display: none; 
 }
 
-
+.error {
+  justify-self: start;
+  color: var(--color-error);
+  margin-top: var(--space-md);
+  font-weight: 500;
+}
 
