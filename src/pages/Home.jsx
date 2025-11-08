@@ -1,3 +1,4 @@
+import HeroSection from "../components/HeroSection";
 import SearchSection from "../components/SearchSection";
 import ResultsSection from "../components/ResultsSection";
 import TopSection from "../components/TopSection";
@@ -10,6 +11,7 @@ function Home() {
 
   return (
     <main>
+      <HeroSection />
       <SearchSection query={query} setQuery={setQuery} suggestions={data} />
       <ResultsSection data={data} error={error} isLoading={isLoading} />
       <TopSection media="tv" />

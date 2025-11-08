@@ -9,8 +9,8 @@ function TopSection({ media }) {
 
   return (
     <section className={styles.top}>
-      <div className="borderTop"></div>
       <h3>Top {media === "tv" ? "TV series" : "movies"}</h3>
+      <div className="borderTop"></div>
       <div>{isLoading && <Spinner />}</div>
       <ul className={styles.scrollContainer}>{data.map((movie) => (<MovieCard movie={movie} key={movie.id}/>))}</ul>
     </section>

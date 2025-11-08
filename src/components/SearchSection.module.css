@@ -2,24 +2,17 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  max-width: 60rem;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 var(--space-md);
-}
-
-.search h1 {
-  margin-top: var(--space-2xl);
-  margin-bottom: var(--space-lg);
-  font-size: var(--font-size-3xl);
-  letter-spacing: -0.5px;
-  color: var(--color-text-primary);
+  padding: 0 var(--space-md) var(--space-md);
+  background-color: var(--color-background-alt)
 }
 
 .search h2 {
   margin-bottom: var(--space-md);
   font-size: var(--font-size-lg);
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--color-text-alt);
   line-height: 1.4;
 }
 

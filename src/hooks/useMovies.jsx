@@ -4,10 +4,18 @@ import {
   debounce,
   getTmdbData,
   getTmdbDataFromImdb,
-  loadMovie
+  loadMovie,
 } from "../utils/helpers";
 
-export default function useMovies({ type, id, genreId, query, media, genre, page = 1 }) {
+export default function useMovies({
+  type,
+  id,
+  genreId,
+  query,
+  media,
+  genre,
+  page = 1,
+}) {
   const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
   const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
@@ -89,6 +97,14 @@ export default function useMovies({ type, id, genreId, query, media, genre, page
         }
         break;
 
+      case "tmdbLatest":
+        {
+          setUrl(
+            `https://api.themoviedb.org/3/movie/now_playing?api_key=${TMDB_API_KEY}&language=en-US&page=1`
+          );
+        }
+        break;
+
       case "favorites":
         {
           const savedIds = loadMovie();
@@ -126,7 +142,9 @@ export default function useMovies({ type, id, genreId, query, media, genre, page
         return json?.results || [];
       case "tmdbCast":
         return json?.cast.slice(0, 10) || [];
-      case 'tmdbByGenre':
+      case "tmdbByGenre":
+        return json?.results || [];
+      case "tmdbLatest":
         return json?.results || [];
       default:
         return json;

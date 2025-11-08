@@ -1,0 +1,6 @@
+.main {
+  padding: var(--space-md) 0;
+  background-color: var(--color-background-alt);
+  height: 100%;
+  width: 100%;
+}

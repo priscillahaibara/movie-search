@@ -13,7 +13,6 @@ function SearchSection({ query, setQuery, suggestions }) {
 
   return (
     <section className={styles.search}>
-      <h1>Movie Search App</h1>
       <h2>Here you can find your favorite movies.</h2>
       <div className={styles.inputWrapper}>
         <input
