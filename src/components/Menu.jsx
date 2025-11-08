@@ -58,13 +58,13 @@ function Menu({ isOpen, toggleMenu }) {
         </MenuSection>
 
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={toggleMenu}>Home</Link>
         </li>
         <li>
-          <Link to="/favorites">Favorites</Link>
+          <Link to="/favorites" onClick={toggleMenu}>Favorites</Link>
         </li>
         <li>
-          <Link to="/settings">Settings</Link>
+          <Link to="/settings" onClick={toggleMenu}>Settings</Link>
         </li>
       </ul>
     </>

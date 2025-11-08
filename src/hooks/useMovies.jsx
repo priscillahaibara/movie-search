@@ -7,7 +7,7 @@ import {
   loadMovie
 } from "../utils/helpers";
 
-export default function useMovies({ type, id, genreId, query, media, genre }) {
+export default function useMovies({ type, id, genreId, query, media, genre, page = 1 }) {
   const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
   const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
@@ -84,7 +84,7 @@ export default function useMovies({ type, id, genreId, query, media, genre }) {
       case "tmdbByGenre":
         {
           setUrl(
-            `https://api.themoviedb.org/3/discover/${media}?api_key=${TMDB_API_KEY}&with_genres=${genreId}`
+            `https://api.themoviedb.org/3/discover/${media}?api_key=${TMDB_API_KEY}&with_genres=${genreId}&page=${page}`
           );
         }
         break;
@@ -116,7 +116,7 @@ export default function useMovies({ type, id, genreId, query, media, genre }) {
       default:
         setUrl("");
     }
-  }, [type, id, genreId, query, media, genre, debouncedSearch]);
+  }, [type, id, genreId, query, media, genre, debouncedSearch, page]);
 
   const transform = (json) => {
     switch (type) {

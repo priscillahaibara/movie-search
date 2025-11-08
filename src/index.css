@@ -21,6 +21,7 @@
   --color-border: #eee;
   --color-menu: rgba(255, 255, 255, 0.95);
   --color-menu-hover: #e5e5e5;
+  --color-background-accent: #f5c518;
 
   /* Font */
   --font-family-base: "Inter", sans-serif;
