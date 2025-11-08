@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import Spinner from "./components/Spinner";
@@ -13,6 +14,8 @@ const LazyPageNotFound = React.lazy(() => import("./pages/PageNotFound"));
 export default function App() {
   return (
     <Router>
+      <Toaster position="top-center" reverseOrder={false}/>
+
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />

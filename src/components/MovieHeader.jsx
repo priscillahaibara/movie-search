@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import styles from "./MovieHeader.module.css";
-import { loadMovie, saveMovie } from "../utils/helpers";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { loadMovie, saveMovie } from "../utils/helpers";
 
 function MovieHeader({ data }) {
   const navigate = useNavigate();
@@ -16,10 +17,20 @@ function MovieHeader({ data }) {
     navigate(-1);
   };
 
-  const handleFavorites = (data) => {
-    saveMovie(data);
+  const handleFavorites = (movie) => {
+    saveMovie(movie);
+
     const savedMovies = loadMovie();
-    setIsMovieSaved(savedMovies.includes(data.imdbID));
+    const isSaved = savedMovies.includes(movie.imdbID);
+    setIsMovieSaved(isSaved);
+
+    if (isSaved) {
+      toast.success("Added to favorites", { style: { fontSize: "1.4rem" } });
+    } else {
+      toast("❌ Removed from favorites.", {
+        style: { fontSize: "1.4rem" },
+      });
+    }
   };
 
   return (
