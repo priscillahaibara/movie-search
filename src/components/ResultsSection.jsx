@@ -5,7 +5,7 @@ import MovieCard from "./MovieCard";
 function ResultsSection({ data, error, isLoading }) {
   return (
     <section className={styles.results}>
-      <h3>Movies List</h3>
+      <h3>Search Results</h3>
       <div className="borderTop"></div>
 
       {isLoading && <Spinner />}

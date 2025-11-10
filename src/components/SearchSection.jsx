@@ -1,9 +1,25 @@
 import styles from "./SearchSection.module.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function SearchSection({ query, setQuery, suggestions }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const containerRef = useRef();
+
+  useEffect(() => {
+    handleClickOutside();
+    document.addEventListener("touchstart", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      removeEventListener("touchstart", handleClickOutside);
+      removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  function handleClickOutside(e) {
+    if (containerRef.current && !containerRef.current.contains(e.target))
+      setShowSuggestions(false);
+  }
 
   function handleChange(e) {
     const value = e.target.value;
@@ -14,7 +30,9 @@ function SearchSection({ query, setQuery, suggestions }) {
   return (
     <section className={styles.search}>
       <div className={styles.overlay}></div>
-      <h1>The Cine<span>DB</span></h1>
+      <h1>
+        The Cine<span>DB</span>
+      </h1>
       <h2>Here you can find your favorite movies.</h2>
       <div className={styles.inputWrapper}>
         <input
@@ -23,7 +41,6 @@ function SearchSection({ query, setQuery, suggestions }) {
           value={query}
           onChange={handleChange}
           onFocus={() => query.length >= 2 && setShowSuggestions(true)}
-          onBlur={() => setShowSuggestions(false)}
         />
         <ion-icon
           name="search-outline"
