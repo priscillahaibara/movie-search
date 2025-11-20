@@ -1,13 +1,122 @@
-.nav {
-  position: relative;
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.navbar {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: var(--space-xl);
   padding: 0 var(--space-md);
-  background-color: rgba(38, 38, 38, 0.9);
-  color: var(--color-text-alt);
+  background-color: var(--color-navbar-background);
+  z-index: 100;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: -70vw;
+  width: 70vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  background-color: var(--color-menu);
+  color: var(--color-text-secondary);
+  overflow-y: auto;
+  scrollbar-width: none;
+  transition: right 0.3s ease-in-out;
+  z-index: 101;
+}
+
+.submenu {
+  font-weight: 400;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.submenu li {
+    padding-top: var(--space-md);
+}
+
+.hamburger {
+  position: absolute;
+  top: 50%;
+  right: var(--space-sm);
+  transform: translateY(-50%);
+  font-size: 20px;
+  --ionicon-stroke-width: 40px;
+  color: var(--color-navbar-text);
+  cursor: pointer;
+  z-index: 102;
+}
+
+.hasSubmenu {
+  position: relative;
+}
+
+.open {
+  right: 0;
+}
+
+.show {
+  max-height: 500px;
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  .menu {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    gap: var(--space-xl);
+    overflow: visible;
+    background: none;
+    transition: none;
+    color: var(--color-navbar-text);
+    font-size: var(--font-size-base);
+  }
+
+  .hasSubmenu:hover .submenu {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .submenu {
+    position: absolute;
+    background: white;
+    padding: 1rem;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    width: 180px;
+  }
+}
+
+/* .nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: var(--space-xl);
+  padding: 0 var(--space-md);
+  background-color: var(--color-navbar-background);
   z-index: 100;
 }
 
@@ -21,10 +130,17 @@
   padding: 0.6rem 0.8rem;
 }
 
-.icon {
+.hamburger {
   font-size: 20px;
   --ionicon-stroke-width: 40px;
   cursor: pointer;
   display: block;
-  line-height: 1;
+  color: var(--color-navbar-text);
 }
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+}
+ */

@@ -1,3 +1,4 @@
+import styles from './Home.module.css'
 import SearchSection from "../components/SearchSection";
 import ResultsSection from "../components/ResultsSection";
 import MovieSection from "../components/MovieSection";

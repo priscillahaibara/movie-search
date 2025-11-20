@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Menu.module.css";
 import { Link } from "react-router-dom";
 import { genreMap, capitalizeFirstLetter } from "../utils/helpers";
-import MenuSection from "./MenuSection";
+import Submenu from "./Submenu";
 
 function Menu({ isOpen, toggleMenu }) {
   const [showMovies, setShowMovies] = useState(false);
@@ -18,17 +18,15 @@ function Menu({ isOpen, toggleMenu }) {
 
   return (
     <>
-      <div
-        className={`${styles.overlay} ${isOpen ? styles.show : ""}`}
-        onClick={toggleMenu}
-      ></div>
+      {isOpen && <div className={styles.overlay} onClick={toggleMenu}></div>}
 
-      <ul className={`${styles.menu} ${isOpen ? styles.show : ""}`}>
+      <ul className={`${styles.menu} ${isOpen ? styles.open : ""}`}>
+        
         <button onClick={toggleMenu} className={styles.closeBtn}>
           <ion-icon name="close"></ion-icon>
         </button>
 
-        <MenuSection
+        <Submenu
           onToggle={() => handleToggle("movies")}
           media="Movies"
           isOpen={showMovies}
@@ -40,9 +38,9 @@ function Menu({ isOpen, toggleMenu }) {
               </Link>
             </li>
           ))}
-        </MenuSection>
+        </Submenu>
 
-        <MenuSection
+        <Submenu
           onToggle={() => handleToggle("series")}
           media="Series"
           isOpen={showSeries}
@@ -55,7 +53,7 @@ function Menu({ isOpen, toggleMenu }) {
                 </Link>
               </li>
             ))}
-        </MenuSection>
+        </Submenu>
 
         <li>
           <Link to="/" onClick={toggleMenu}>Home</Link>
