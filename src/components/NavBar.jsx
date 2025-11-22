@@ -38,7 +38,7 @@ function NavBar() {
             <ion-icon name="close" class={styles.close} />
           </button>
 
-          <li>
+          <li className={styles.menuItem}>
             <Link to="/" onClick={closeMenu}>
               Home
             </Link>
@@ -48,7 +48,7 @@ function NavBar() {
             className={styles.hasSubmenu}
             onClick={() => toggleSubmenu("movies")}
           >
-            <div>
+            <div className={styles.menuItem}>
               <span>Movies</span>
             </div>
 
@@ -67,9 +67,9 @@ function NavBar() {
 
           <li
             className={styles.hasSubmenu}
-            onClick={() => toggleSubmenu("movies")}
+            onClick={() => toggleSubmenu("series")}
           >
-            <div>
+            <div className={styles.menuItem}>
               <span>Series</span>
             </div>
 
@@ -86,13 +86,13 @@ function NavBar() {
             </ul>
           </li>
 
-          <li>
+          <li className={styles.menuItem}>
             <Link to="/favorites" onClick={closeMenu}>
               Favorites
             </Link>
           </li>
 
-          <li>
+          <li className={styles.menuItem}>
             <Link to="/settings" onClick={closeMenu}>
               Settings
             </Link>
