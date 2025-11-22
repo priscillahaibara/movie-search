@@ -21,11 +21,11 @@
   --color-text-light: #f5f5f5;
   --color-text-dark: #444;
   --color-text-error: #d32f2f;
-  
+
   --color-border: #eee;
-  
-  --color-navbar-background: rgb(38, 38, 38, 0.97);
-  --color-navbar-text: #f5f5f5;
+
+  --color-header-background: rgb(38, 38, 38, 0.97);
+  --color-header-text: #f5f5f5;
 
   --color-menu: rgba(255, 255, 255, 0.95);
   --color-menu-background-sm: rgba(255, 255, 255, 0.95);
@@ -40,6 +40,9 @@
 
   --color-scrollbar-background: #ffffff;
   --color-scrollbar: #e5e5e5;
+
+  --color-footer-background: rgb(38, 38, 38, 0.97);
+  --color-footer-text: #f5f5f5;
 
   /* Font */
   --font-family-base: "Inter", sans-serif;
@@ -110,7 +113,8 @@ a {
   color: inherit;
 }
 
-input, select {
+input,
+select {
   border: none;
   background: none;
 }

@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import Home from "./pages/Home";
-import NavBar from "./components/NavBar";
+import Header from "./components/Header";
 import Spinner from "./components/Spinner";
+import Footer from "./components/Footer";
 
 const LazyMovie = React.lazy(() => import("./pages/Movie"));
 const LazyGenres = React.lazy(() => import("./pages/Genres"));
@@ -18,7 +19,7 @@ export default function App() {
     <Router>
       <Toaster position="top-center" reverseOrder={false} />
 
-      <NavBar />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -62,6 +63,8 @@ export default function App() {
           }
         />
       </Routes>
+
+      <Footer />
     </Router>
   );
 }

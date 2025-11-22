@@ -13,7 +13,7 @@
   width: 100%;
   height: var(--space-xl);
   padding: 0 var(--space-md);
-  background-color: var(--color-navbar-background);
+  background-color: var(--color-header-background);
   z-index: 100;
 }
 
@@ -67,7 +67,7 @@
 .hamburger {
   font-size: 20px;
   --ionicon-stroke-width: 40px;
-  color: var(--color-navbar-text);
+  color: var(--color-header-text);
   cursor: pointer;
 }
 
@@ -111,7 +111,7 @@
     justify-content: flex-end;
     gap: var(--space-md);
     background: none;
-    color: var(--color-navbar-text);
+    color: var(--color-header-text);
     font-size: var(--font-size-base);
     transition: none;
     overflow: visible;

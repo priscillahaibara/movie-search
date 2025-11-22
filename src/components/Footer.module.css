@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4xs);
+  width: 100%;
+  height: var(--space-xl);
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+  background-color: var(--color-footer-background);
+}
+
+.footer p,
+.footer address,
+.footer address a {
+  font-size: var(--font-size-xs);
+  font-family: inherit;
+  font-style: normal;
+  text-decoration: none;
+  color: var(--color-footer-text);
+}

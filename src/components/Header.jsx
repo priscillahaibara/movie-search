@@ -1,10 +1,10 @@
-import styles from "./NavBar.module.css";
+import styles from './Header.module.css';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { genreMap, capitalizeFirstLetter } from "../utils/helpers";
 import Logo from "./Logo";
 
-function NavBar() {
+function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [moviesOpen, setMoviesOpen] = useState(false);
   const [seriesOpen, setSeriesOpen] = useState(false);
@@ -106,4 +106,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Header;
