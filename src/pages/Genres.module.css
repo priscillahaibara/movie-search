@@ -52,3 +52,9 @@
   font-size: var(--font-size-sm);
   font-weight: 500;
 }
+
+@media (min-width: 768px) {
+  .genres {
+    padding: var(--space-3xl) var(--space-xl);
+  }
+}

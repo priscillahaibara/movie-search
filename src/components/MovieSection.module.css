@@ -20,5 +20,30 @@
 }
 
 .scrollContainer::-webkit-scrollbar {
-  display: none; 
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .movieSection {
+    padding: 0 var(--space-xl);
+  }
+
+  .scrollContainer {
+    scrollbar-width: auto;
+        cursor: pointer;
+  }
+
+  .scrollContainer::-webkit-scrollbar {
+    display: block;
+    height: 8px; 
+  }
+
+  .scrollContainer::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar);
+    border-radius: 4px;
+  }
+
+  .scrollContainer::-webkit-scrollbar-track {
+    background: var(--color-scrollbar-background);
+  }
 }

@@ -59,8 +59,8 @@ function NavBar() {
               className={`${styles.submenu} ${moviesOpen ? styles.show : ""}`}
             >
               {Object.keys(genreMap.movie).map((genre) => (
-                <Link to={`/movie/${genre}`} onClick={closeMenu}>
-                  <li key={genre} className={styles.submenuItem}>
+                <Link key={genre} to={`/movie/${genre}`} onClick={closeMenu}>
+                  <li className={styles.submenuItem}>
                     {capitalizeFirstLetter(genre)}
                   </li>
                 </Link>
@@ -84,7 +84,7 @@ function NavBar() {
               className={`${styles.submenu} ${seriesOpen ? styles.show : ""}`}
             >
               {Object.keys(genreMap.tv).map((genre) => (
-                <Link to={`/tv/${genre}`} onClick={closeMenu}>
+                <Link key={genre} to={`/tv/${genre}`} onClick={closeMenu}>
                   <li key={genre} className={styles.submenuItem}>
                     {capitalizeFirstLetter(genre)}
                   </li>

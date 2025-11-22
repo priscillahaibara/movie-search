@@ -7,12 +7,12 @@ function SearchSection({ query, setQuery, suggestions }) {
   const containerRef = useRef();
 
   useEffect(() => {
-    handleClickOutside();
     document.addEventListener("touchstart", handleClickOutside);
     document.addEventListener("mousedown", handleClickOutside);
+    
     return () => {
-      removeEventListener("touchstart", handleClickOutside);
-      removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -28,13 +28,13 @@ function SearchSection({ query, setQuery, suggestions }) {
   }
 
   return (
-    <section className={styles.search}>
+    <section className={styles.searchSection}>
       <div className={styles.overlay}></div>
       <h1>
         The Cine<span>DB</span>
       </h1>
       <h2>Here you can find your favorite movies.</h2>
-      <div className={styles.inputWrapper}>
+      <div className={styles.inputWrapper} ref={containerRef}>
         <input
           type="text"
           placeholder="Search for a movie..."
@@ -50,14 +50,14 @@ function SearchSection({ query, setQuery, suggestions }) {
         {showSuggestions && suggestions.length > 0 && (
           <ul className={styles.suggestions}>
             {suggestions.map((movie) => (
-              <li key={movie.imdbID}>
-                <Link
-                  to={`/search/${movie.imdbID}`}
-                  onClick={() => setShowSuggestions(false)}
-                >
+              <Link
+                to={`/search/${movie.imdbID}`}
+                onClick={() => setShowSuggestions(false)}
+              >
+                <li key={movie.imdbID}>
                   {movie.Title} ({movie.Year})
-                </Link>
-              </li>
+                </li>
+              </Link>
             ))}
           </ul>
         )}

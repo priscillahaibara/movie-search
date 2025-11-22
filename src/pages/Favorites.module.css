@@ -35,3 +35,9 @@
   color: var(--color-text-secondary);
   margin-top: var(--space-md);
 }
+
+@media (min-width: 768px) {
+  .favorites {
+    padding: var(--space-3xl) var(--space-xl);
+  }
+}

@@ -1,14 +1,11 @@
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 0;
 }
 
-.search {
+.searchSection {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,32 +14,31 @@
   margin: 0 auto;
   padding-top: var(--space-3xl);
   padding-bottom: var(--space-lg);
-  background-color: var(--color-background-alt);
-
+  color: var(--color-text-light);
   background-image: url("../assets/theater.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.search h1 {
+.searchSection h1,
+.searchSection h2 {
+  z-index: 1;
   margin-bottom: var(--space-md);
+}
+
+.searchSection h1 {
   font-size: var(--font-size-3xl);
   letter-spacing: -0.5px;
-  color: var(--color-text-alt);
-  z-index: 1;
 }
 
-.search span {
-  color: #f5c518;
+.searchSection span {
+  color: var(--color-accent);
 }
 
-.search h2 {
-  margin-bottom: var(--space-md);
+.searchSection h2 {
   font-size: var(--font-size-lg);
   font-weight: 500;
-  color: var(--color-text-alt);
   line-height: 1.4;
-  z-index: 1;
 }
 
 .inputWrapper {
@@ -50,10 +46,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: clamp(300px, 70vw, 700px);
   margin: 0 auto var(--space-xs);
-  background-color: var(--color-background-input);
-  box-shadow: 1px 1px 4px 0.5px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-input-background);
   border-radius: 4px;
 }
 
@@ -75,24 +70,39 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
   max-height: 100px;
   margin-bottom: 200px;
+  padding: var(--space-2xs) var(--space-xs);
+  text-align: left;
+  background: var(--color-background);
+  color: var(--color-text-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
   overflow-y: auto;
-  z-index: 10;
   scrollbar-width: none;
   cursor: pointer;
+  z-index: 10;
 }
 
 .suggestions li {
   padding: var(--space-xs) var(--space-3xs);
+  font-size: var(--font-size-xs);
+  border-radius: 4px;
   cursor: pointer;
   transition: background 0.2s ease;
-  font-size: var(--font-size-xs);
 }
 
 .suggestions li:hover {
-  background: var(--color-menu-hover);
+  background: var(--color-input-hover);
+}
+
+@media (min-width: 768px) {
+  .overlay {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .searchSection {
+    padding-top: var(--space-4xl);
+    padding-bottom: var(--space-xl);
+  }
 }

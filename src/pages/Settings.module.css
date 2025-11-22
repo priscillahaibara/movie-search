@@ -27,3 +27,9 @@
   padding: var(--space-4xs) var(--space-xs);
   border-radius: 2px;
 }
+
+@media (min-width: 768px) {
+  .settings {
+    padding: var(--space-3xl) var(--space-xl);
+  }
+}

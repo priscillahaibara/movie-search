@@ -6,3 +6,9 @@ main {
   margin-bottom: var(--space-md);
   font-size: var(--font-size-2xl);
 }
+
+@media (min-width: 768px) {
+  main {
+    padding: var(--space-3xl) var(--space-xl);
+  }
+}
