@@ -75,6 +75,7 @@
 /* Dark theme */
 [data-theme="dark"] {
   --color-background: #171717;
+  --color-background-alt: #171717;
   --color-text-primary: #eeeeee;
   --color-text-secondary: #dddddd;
   --color-border: #303030;

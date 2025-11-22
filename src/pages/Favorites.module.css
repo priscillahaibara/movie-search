@@ -41,4 +41,14 @@
   .favorites {
     padding: var(--space-3xl) var(--space-xl) var(--space-md);
   }
+
+  .sectionFavorites {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionFavorites {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
