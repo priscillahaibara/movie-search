@@ -13,6 +13,7 @@
 /* Light theme */
 :root {
   --color-background: #ffffff;
+  --color-background-alt: #262626;
 
   --color-text-primary: #222;
   --color-text-secondary: #444;
@@ -79,6 +80,8 @@
   --color-border: #303030;
   --color-menu: rgb(38, 38, 38, 0.95);
   --color-menu-hover--sm: #404040;
+  --color-scrollbar-background: #171717;
+  --color-scrollbar: #404040;
 }
 
 *,

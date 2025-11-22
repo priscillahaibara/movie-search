@@ -1,7 +1,7 @@
 .cast {
   padding: var(--space-sm) var(--space-md);
   background-color: var(--color-background-alt);
-  color: var(--color-text-alt);
+  color: var(--color-text-light);
 }
 
 .cast h3 {
@@ -33,4 +33,10 @@
   font-size: var(--font-size-xs);
   font-weight: 500;
   line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .cast {
+    padding: var(--space-sm) var(--space-xl);
+  }
 }

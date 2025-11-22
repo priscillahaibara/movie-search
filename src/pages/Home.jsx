@@ -10,7 +10,7 @@ function Home() {
   const { data, error, isLoading } = useMovies({ type: "omdbSearch", query });
 
   return (
-    <main>
+    <main className={styles.home}>
       <SearchSection query={query} setQuery={setQuery} suggestions={data} />
       <ResultsSection data={data} error={error} isLoading={isLoading} />
       <MovieSection title='Latest Releases' media='movie' type='tmdbLatest'/>

@@ -1,5 +1,6 @@
 .favorites {
-  padding: var(--space-3xl) var(--space-md);
+  padding: var(--space-3xl) var(--space-md) var(--space-md);
+  height: calc(100vh - var(--space-xl));
 }
 
 .favorites h1 {
@@ -38,6 +39,6 @@
 
 @media (min-width: 768px) {
   .favorites {
-    padding: var(--space-3xl) var(--space-xl);
+    padding: var(--space-3xl) var(--space-xl) var(--space-md);
   }
 }

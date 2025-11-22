@@ -1,7 +1,7 @@
 .header {
   padding: var(--space-sm) var(--space-md);
   background-color: var(--color-background-alt);
-  color: var(--color-text-alt);
+  color: var(--color-text-light);
 }
 
 .title {
@@ -50,12 +50,18 @@
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  background-color: #f5c518;
-  color: #000;
+  background-color: var(--color-accent);
+  color: var(--color-text-accent);
   font-weight: 700;
   font-size: var(--font-size-base);
   border-radius: 8px;
   padding: 0.4rem 0.8rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   letter-spacing: 0.5px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: var(--space-sm) var(--space-xl);
+  }
 }

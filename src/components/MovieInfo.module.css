@@ -5,3 +5,9 @@
 .plot {
   margin-bottom: var(--space-sm);
 }
+
+@media (min-width: 768px) {
+  .info {
+    padding: var(--space-sm) var(--space-xl);
+  }
+}

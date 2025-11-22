@@ -2,14 +2,14 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: clamp(150px, 30vw, 250px);
+  height: clamp(200px, 30vw, 300px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .hero img {
-  max-height: 90%;
-  margin-left: var(--space-xs);
+  height: clamp(145px, 22vw, 240px);
+  margin: var(--space-xl) var(--space-xl) var(--space-4xs);
   border-radius: 4px;
 }

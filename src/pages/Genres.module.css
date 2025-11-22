@@ -1,5 +1,5 @@
 .genres {
-  padding: var(--space-3xl) var(--space-md);
+  padding: var(--space-3xl) var(--space-md) var(--space-md);
 }
 
 .genres h1 {
@@ -55,6 +55,16 @@
 
 @media (min-width: 768px) {
   .genres {
-    padding: var(--space-3xl) var(--space-xl);
+    padding: var(--space-3xl) var(--space-xl) var(--space-md);
+  }
+
+  .sectionGenres {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionGenres {
+    grid-template-columns: repeat(6, 1fr);
   }
 }
