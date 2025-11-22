@@ -38,11 +38,9 @@ function NavBar() {
             <ion-icon name="close" class={styles.close} />
           </button>
 
-          <li className={styles.menuItem}>
-            <Link to="/" onClick={closeMenu}>
-              Home
-            </Link>
-          </li>
+          <Link to="/" onClick={closeMenu}>
+            <li className={styles.menuItem}>Home</li>
+          </Link>
 
           <li
             className={styles.hasSubmenu}
@@ -50,17 +48,22 @@ function NavBar() {
           >
             <div className={styles.menuItem}>
               <span>Movies</span>
+
+              <ion-icon
+                name="chevron-down-outline"
+                className={styles.chevron}
+              ></ion-icon>
             </div>
 
             <ul
               className={`${styles.submenu} ${moviesOpen ? styles.show : ""}`}
             >
               {Object.keys(genreMap.movie).map((genre) => (
-                <li key={genre} className={styles.genreItem}>
-                  <Link to={`/movie/${genre}`} onClick={closeMenu}>
+                <Link to={`/movie/${genre}`} onClick={closeMenu}>
+                  <li key={genre} className={styles.submenuItem}>
                     {capitalizeFirstLetter(genre)}
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               ))}
             </ul>
           </li>
@@ -71,32 +74,32 @@ function NavBar() {
           >
             <div className={styles.menuItem}>
               <span>Series</span>
+              <ion-icon
+                name="chevron-down-outline"
+                className={styles.chevron}
+              ></ion-icon>
             </div>
 
             <ul
               className={`${styles.submenu} ${seriesOpen ? styles.show : ""}`}
             >
               {Object.keys(genreMap.tv).map((genre) => (
-                <li key={genre} className={styles.genreItem}>
-                  <Link to={`/tv/${genre}`} onClick={closeMenu}>
+                <Link to={`/tv/${genre}`} onClick={closeMenu}>
+                  <li key={genre} className={styles.submenuItem}>
                     {capitalizeFirstLetter(genre)}
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               ))}
             </ul>
           </li>
 
-          <li className={styles.menuItem}>
-            <Link to="/favorites" onClick={closeMenu}>
-              Favorites
-            </Link>
-          </li>
+          <Link to="/favorites" onClick={closeMenu}>
+            <li className={styles.menuItem}>Favorites</li>
+          </Link>
 
-          <li className={styles.menuItem}>
-            <Link to="/settings" onClick={closeMenu}>
-              Settings
-            </Link>
-          </li>
+          <Link to="/settings" onClick={closeMenu}>
+            <li className={styles.menuItem}>Settings</li>
+          </Link>
         </ul>
       </header>
     </>

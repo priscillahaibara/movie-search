@@ -17,38 +17,44 @@
   z-index: 100;
 }
 
-.menu,
-.submenu {
-  display: flex;
-  flex-direction: column;
-/*   gap: var(--space-md); */
-}
-
 .menu {
   position: fixed;
   top: 0;
   right: -70vw;
   width: 70vw;
   height: 100vh;
-  padding: var(--space-xl) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) var(--space-md);
   font-size: var(--font-size-lg);
   font-weight: 600;
   background-color: var(--color-menu-background-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-menu-text-sm);
   overflow-y: auto;
   scrollbar-width: none;
   transition: right 0.3s ease-in-out;
   z-index: 101;
 }
 
-.menuItem, .genreItem {
+.menuItem {
+  display: flex;
+  align-items: center;
+}
+
+.menuItem,
+.submenuItem {
   padding: var(--space-sm);
   border-radius: 4px;
   cursor: pointer;
 }
 
-.menuItem:hover, .genreItem:hover {
- background-color: var(--color-menu-hover-sm);
+.menuItem:hover,
+.submenuItem:hover {
+  background-color: var(--color-menu-hover-sm);
+}
+
+.hasSubmenu {
+  position: relative;
 }
 
 .submenu {
@@ -71,12 +77,12 @@
   right: var(--space-sm);
   font-size: 20px;
   --ionicon-stroke-width: 40px;
-  color: var(--color-text-secondary);
+  color: var(--color-menu-text-sm);
   z-index: 102;
 }
 
-.hasSubmenu {
-  position: relative;
+.chevron {
+  margin-left: 6px;
 }
 
 .open {
@@ -84,14 +90,15 @@
 }
 
 .show {
-  max-height: 500px;
+  max-height: 300px;
 }
 
 @media (min-width: 768px) {
-  .hamburger {
-    display: none;
+  .header {
+    padding: 0 var(--space-xl);
   }
 
+  .hamburger,
   .close {
     display: none;
   }
@@ -101,23 +108,27 @@
     width: auto;
     height: auto;
     flex-direction: row;
-    gap: var(--space-xl);
-    overflow: visible;
+    justify-content: flex-end;
+    gap: var(--space-md);
     background: none;
-    transition: none;
     color: var(--color-navbar-text);
     font-size: var(--font-size-base);
+    transition: none;
+    overflow: visible;
+  }
+
+  .menuItem:hover {
+    background: none;
   }
 
   .hasSubmenu:hover .submenu {
-    max-height: 500px;
+    max-height: 300px;
     opacity: 1;
     pointer-events: auto;
   }
 
   .submenu {
     position: absolute;
-    background: white;
     width: 150px;
     max-height: 0;
     background-color: var(--color-menu-background-lg);
@@ -126,12 +137,7 @@
     transition: 0.3s;
   }
 
-  .genreItem {
-    padding: var(--space-sm);
-  }
-
-  .genreItem:hover {
-    width: 100%;
+  .submenuItem:hover {
     background-color: var(--color-menu-hover-lg);
   }
 }
