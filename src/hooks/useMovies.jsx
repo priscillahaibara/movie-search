@@ -16,8 +16,8 @@ export default function useMovies({
   genre,
   page = 1,
 }) {
-  const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
-  const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+  const OMDB_API_KEY = process.env.OMDB_API_KEY;
+  const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
   const [url, setUrl] = useState("");
   const [savedMovies, setSavedMovies] = useState([]);
