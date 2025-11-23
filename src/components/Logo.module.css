@@ -3,6 +3,7 @@
   font-size: var(--font-size-base);
   letter-spacing: 0.5px;
   color: var(--color-text-accent);
+  font-weight: 600;
   background-color: var(--color-accent);
   border-radius: 4px;
   padding: 0.6rem 0.8rem;
